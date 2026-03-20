@@ -151,6 +151,13 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
     errorMsg.classList.add('hidden');
     currentStudentId = enrollment;
     
+    const { device, timezone } = getDeviceData();
+    
+    // Log the moment they successfully log in!
+    await supabaseClient.from('tracking').insert([
+        { enrollment_no: currentStudentId, action: 'login', device: device, timezone: timezone }
+    ]);
+    
     // Check Supabase for previous cheat clicks
     const { count, error } = await supabaseClient
         .from('tracking')
