@@ -1,8 +1,9 @@
 // --- 1. SUPABASE CONFIGURATION ---
-// PASTE YOUR ACTUAL SUPABASE URL AND ANON KEY HERE
-const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+const SUPABASE_URL = 'https://jqxbbnypkvnvyscylsty.supabase.co'; 
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpxeGJibnlwa3ZudnlzY3lsc3R5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMTY0NTIsImV4cCI6MjA4OTU5MjQ1Mn0.877h8uS66QjehLvMwx3rEsZG8N_XdK1pqPHiF5YKchU';
+
+// FIX: Renamed to 'supabaseClient' so it doesn't fight with the global library name
+const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // --- 2. THE 8 ETHNOGRAPHIES & GOOGLE DRIVE LINKS ---
 const ethnographies = [
@@ -17,7 +18,6 @@ const ethnographies = [
 ];
 
 // --- 3. HARDCODED STUDENT DATABASE (Pre-Assigned Books) ---
-// Books array holds the index [0-7] of the books they are assigned.
 const studentDB = {
     // B.A. Students
     "Y24120001": { name: "ANSHUL TAMRAKAR", course: "B.A.", books: [0, 1] }, "Y24120002": { name: "KHUSHVEER SINGH SURYA", course: "B.A.", books: [0, 2] },
@@ -150,8 +150,8 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
     errorMsg.classList.add('hidden');
     currentStudentId = enrollment;
     
-    // Check Supabase for previous cheat clicks
-    const { count, error } = await supabase
+    // Check Supabase for previous cheat clicks (Using 'supabaseClient' now)
+    const { count, error } = await supabaseClient
         .from('tracking')
         .select('*', { count: 'exact', head: true })
         .eq('enrollment_no', enrollment)
@@ -189,8 +189,8 @@ document.getElementById('wa-help-btn').addEventListener('click', async function(
     e.preventDefault(); 
     const { device, timezone } = getDeviceData();
     
-    // Log to Supabase silently
-    await supabase.from('tracking').insert([
+    // Log to Supabase silently (Using 'supabaseClient' now)
+    await supabaseClient.from('tracking').insert([
         { enrollment_no: currentStudentId, action: 'whatsapp', device: device, timezone: timezone }
     ]);
     
@@ -231,8 +231,8 @@ document.getElementById('cheat-btn').addEventListener('click', async function() 
     
     const { device, timezone } = getDeviceData();
     
-    // Send tracking data directly to Supabase
-    await supabase.from('tracking').insert([
+    // Send tracking data directly to Supabase (Using 'supabaseClient' now)
+    await supabaseClient.from('tracking').insert([
         { 
             enrollment_no: currentStudentId, 
             action: 'cheat', 
