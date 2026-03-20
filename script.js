@@ -127,6 +127,7 @@ const studentDB = {
 
 let currentStudentId = "";
 let currentStrikeCount = 0;
+let lastMemeIndex = -1; // This guarantees no immediate duplicates
 
 // --- 4. DEVICE SCRAPER ---
 function getDeviceData() {
@@ -231,10 +232,16 @@ const trapLinks = [
 document.getElementById('cheat-btn').addEventListener('click', async function() {
     currentStrikeCount++;
 
-    // Pick a random meme
-    const randomIndex = Math.floor(Math.random() * trapLinks.length);
-    const finalLink = trapLinks[randomIndex];
+    // Pick a random meme, but force it to re-roll if it matches the last one
+    let randomIndex;
+    do {
+        randomIndex = Math.floor(Math.random() * trapLinks.length);
+    } while (randomIndex === lastMemeIndex);
     
+    // Save this new index so we remember it for the next click
+    lastMemeIndex = randomIndex; 
+    
+    const finalLink = trapLinks[randomIndex];
     const { device, timezone } = getDeviceData();
     
     // Send tracking data directly to Supabase
