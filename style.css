@@ -59,20 +59,42 @@ details[open] summary:before { transform: rotate(180deg); display: inline-block;
 .whatsapp-fab:hover { transform: scale(1.1) rotate(5deg); }
 .whatsapp-fab svg { width: 35px; height: 35px; fill: white; }
 
-/* The Elegant Signature Watermark */
+/* --- THE AESTHETIC SIGNATURE --- */
 .watermark {
     text-align: center;
-    margin-top: 40px;
-    margin-bottom: 20px;
-    font-family: 'Playfair Display', serif;
-    font-style: italic;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    font-size: 16px;
     color: #88929b;
-    font-size: 15px;
-    letter-spacing: 0.5px;
-    opacity: 0.8;
-    transition: opacity 0.3s ease;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.4s ease;
 }
-.watermark:hover { opacity: 1; color: var(--primary-navy); }
-.watermark span { font-weight: bold; }
+
+/* This is triggered by JS after login */
+.watermark:not(.hidden) {
+    animation: floatUp 0.8s forwards 0.3s;
+}
+
+.watermark .hindi-name {
+    font-family: 'Kalam', cursive;
+    font-size: 26px;
+    font-weight: 700;
+    /* Elegant gold gradient for the name */
+    background: linear-gradient(135deg, #c5a059, #e6c27a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-left: 6px;
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.watermark:hover .hindi-name {
+    transform: scale(1.1) rotate(-3deg);
+}
+
+@keyframes floatUp {
+    to { opacity: 1; transform: translateY(0); }
+}
 
 @media (max-width: 600px) { body { padding: 0 15px; margin: 20px auto; } .card { padding: 25px 20px; } .input-group { flex-direction: column; } .btn { width: 100%; } .whatsapp-fab { bottom: 20px; right: 20px; width: 50px; height: 50px; } .whatsapp-fab svg { width: 28px; height: 28px; } }
