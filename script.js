@@ -1,6 +1,8 @@
 // --- 1. SUPABASE CONFIGURATION ---
 const SUPABASE_URL = 'https://jqxbbnypkvnvyscylsty.supabase.co'; 
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpxeGJibnlwa3ZudnlzY3lsc3R5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMTY0NTIsImV4cCI6MjA4OTU5MjQ1Mn0.877h8uS66QjehLvMwx3rEsZG8N_XdK1pqPHiF5YKchU';
+
+// Using 'supabaseClient' to prevent naming collisions with the external library
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // --- 2. THE 8 ETHNOGRAPHIES & GOOGLE DRIVE LINKS ---
@@ -172,7 +174,7 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
             </div>`;
     });
 
-    // Enforce 2-Strike Limit via Supabase
+    // Enforce 2-Strike Limit via Supabase Verification
     if (currentStrikeCount >= 2) {
         document.getElementById('trap-container').classList.add('hidden');
     }
@@ -202,7 +204,7 @@ document.getElementById('wa-help-btn').addEventListener('click', async function(
     window.open(`https://wa.me/918986937029?text=Hi,%20I%20need%20help%20with%20ANT%20DSM%20412.`, '_blank');
 });
 
-// --- 7. THE TRAP ROULETTE (20 LINKS) ---
+// --- 7. THE TRAP ROULETTE (YOUR EXACT 20 LINKS) ---
 const trapLinks = [
     "https://youtu.be/HI8nIMRhuvo?si=DUAZbFgGgyWz4Gym",
     "https://youtu.be/EyLcr-MYB1Q?si=KifwukQsr-7UDhKv",
