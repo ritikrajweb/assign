@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANT DSM 412 | Ethnography Assignment Hub</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="card" id="landing-card">
+        <h2>Department of Anthropology</h2>
+        <h3 style="color: #555;">ANT DSM 412: Practical in Reading of Ethnography</h3>
+        <p>Enter your University Enrollment Number to access your personalized dashboard and assigned ethnographies.</p>
+        
+        <div class="input-group">
+            <input type="text" id="enrollment-input" placeholder="e.g., Y24120001" required>
+            <button id="generate-btn" class="btn">Login</button>
+        </div>
+        <p id="error-msg" class="hidden" style="color: #e74c3c; margin-top: 10px; font-weight: bold;">⚠️ Invalid Enrollment Number. Please check and try again.</p>
+    </div>
+
+    <div id="results-area" class="hidden">
+        <div class="card">
+            <h2 id="student-name-display" style="color: #2c3e50; margin-bottom: 5px;"></h2>
+            <p id="student-details-display" style="color: #666; font-weight: bold; border-bottom: 2px solid #eee; padding-bottom: 15px; margin-bottom: 20px;"></p>
+            
+            <p>You are required to read, analyze, and review the following two ethnographies by <strong>April 15th</strong>:</p>
+            
+            <div id="topic-list"></div>
+
+            <div class="req-box">
+                <h4>Mandatory Document Structure</h4>
+                <p><strong>Formatting:</strong> Times New Roman. Main Text: 12pt, Sub-Topics: 14pt (Bold), Titles: 16pt (Bold).</p>
+                <ol>
+                    <li><strong>Front Page</strong> (Name, Enrollment, Course Details)</li>
+                    <li><strong>Second Title Page</strong> (Outline of ethnographies on [Book 1] & [Book 2] - Tentative)</li>
+                    <li><strong>Contents Page</strong></li>
+                    <li><strong>Ethnography 1 Review</strong>:
+                        <ul>
+                            <li><strong>Abstract:</strong> Max 300 words.</li>
+                            <li><strong>Introduction:</strong> Research Question (1 para), Objectives (must start with "To..."), Significance (point-wise, half page).</li>
+                            <li><strong>Material and Methods:</strong> Study Area (describe terrain/forest), Population (explicitly state sample size and age), Data Types (qualitative/quantitative specifics), Collection Methods (interviews, observation, genealogy, etc.), Data Analysis (Descriptive/Analytical).</li>
+                            <li><strong>Key Findings:</strong> Point-wise, Min. 2 pages.</li>
+                            <li><strong>Comparison with Contemporary Context:</strong> Point-wise, Min. 1.5 pages. Compare with articles from the <strong>last 10 years</strong>.</li>
+                            <li><strong>Summary:</strong> Synthesizing this specific text.</li>
+                        </ul>
+                    </li>
+                    <li><strong>Ethnography 2 Review:</strong> (Follow exact same structure as Ethnography 1 above).</li>
+                    <li><strong>References:</strong> A single, combined bibliography at the very end.</li>
+                </ol>
+                <a href="YOUR_PPT_DRIVE_LINK_HERE" target="_blank" style="color: #2980b9; font-weight: bold; text-decoration: none;">⬇ Download Official Dept. PPT Template</a>
+            </div>
+            
+            <div class="trap-card" id="trap-container">
+                <h3>🤖 ANT DSM 412 Auto-Writer (Beta)</h3>
+                <p>Why read the ethnographies when you can fake it? This experimental tool generates completely fake, highly academic-sounding "Material and Methods" and "Critical Analysis" sections tailored to your exact topics.</p>
+                <button id="cheat-btn" class="btn-cheat">✍️ Watch pre-made assignment and be tension free</button>
+            </div>
+
+            <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="btn btn-submit">Submit Soft Copy (PDF) Here</a>
+        </div>
+    </div>
+
+    <a href="#" id="wa-help-btn" class="whatsapp-fab hidden" title="Need Help?">
+        <svg viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564c.173.087.289.129.332.202.043.073.043.423-.101.827z"></path></svg>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
