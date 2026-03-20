@@ -1,262 +1,78 @@
-/* =========================================================
-   ANT DSM 412 - Ethnography Portal Stylesheet
-   Design System: Classic Academic vs. Modern Tech Trap
-========================================================= */
-
+/* General Academic UI with Premium Adjustments */
 :root {
-    /* Academic Theme Colors */
-    --bg-parchment: #fdfbf7;        /* Subtle off-white for a classic paper feel */
-    --primary-navy: #002147;        /* Deep, authoritative academic blue */
-    --accent-gold: #c5a059;         /* Official university gold */
-    --text-main: #2c3e50;           /* Soft black for readable body text */
-    --text-muted: #5a6c7d;          /* Secondary text color */
-    
-    /* UI Element Colors */
-    --card-bg: #ffffff;
+    --bg-parchment: #fdfbf7;
+    --primary-navy: #002147;
+    --accent-gold: #c5a059;
+    --text-main: #2c3e50;
     --border-light: #e1e4e8;
     --success-green: #27ae60;
-    --success-hover: #219653;
-    --danger-red: #e74c3c;
-    
-    /* The Trap (Dark Mode) Colors */
-    --trap-bg: #121212;
-    --trap-border: #333333;
-    --trap-text: #e0e0e0;
-    --trap-neon: #a29bfe;
 }
 
-/* --- Base Resets & Typography --- */
-body { 
-    font-family: 'Inter', system-ui, -apple-system, sans-serif; 
-    background-color: var(--bg-parchment); 
-    color: var(--text-main);
-    max-width: 800px; 
-    margin: 40px auto; 
-    padding: 0 20px; 
-    line-height: 1.6; 
-    -webkit-font-smoothing: antialiased;
-}
+body { font-family: 'Inter', system-ui, -apple-system, sans-serif; background-color: var(--bg-parchment); color: var(--text-main); max-width: 800px; margin: 40px auto; padding: 0 20px; line-height: 1.6; -webkit-font-smoothing: antialiased; }
 
-/* Classic serif for headings to make it look official */
-h1, h2, h3, h4 { 
-    font-family: 'Georgia', 'Times New Roman', serif;
-    color: var(--primary-navy); 
-    margin-top: 0; 
-    font-weight: 700;
-}
-
+h1, h2, h3, h4 { font-family: 'Georgia', 'Times New Roman', serif; color: var(--primary-navy); margin-top: 0; font-weight: 700; }
 h2 { font-size: 28px; margin-bottom: 5px; }
-h3 { font-size: 20px; }
 
 .hidden { display: none !important; }
 
-/* --- Layout Cards --- */
-.card { 
-    background: var(--card-bg); 
-    border: 1px solid var(--border-light); 
-    padding: 35px; 
-    border-radius: 12px; 
-    margin-bottom: 25px; 
-    box-shadow: 0 8px 24px rgba(0, 33, 71, 0.04); /* Very soft navy shadow */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+/* Premium Layout Cards */
+.card { background: white; border: 1px solid var(--border-light); padding: 35px; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 8px 24px rgba(0, 33, 71, 0.04); transition: transform 0.3s ease; }
 
-/* --- Form Inputs --- */
-.input-group { 
-    display: flex; 
-    gap: 12px; 
-    margin-top: 25px; 
-}
+/* Inputs & Buttons */
+.input-group { display: flex; gap: 12px; margin-top: 25px; }
+input[type="text"] { padding: 14px 18px; flex-grow: 1; font-size: 16px; font-family: monospace; font-weight: bold; color: var(--primary-navy); border: 2px solid var(--border-light); border-radius: 8px; outline: none; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; }
+input[type="text"]:focus { border-color: var(--primary-navy); box-shadow: 0 0 0 3px rgba(0, 33, 71, 0.1); }
 
-input[type="text"] { 
-    padding: 14px 18px; 
-    flex-grow: 1; 
-    font-size: 16px; 
-    font-family: monospace; /* Makes enrollment numbers look technical */
-    font-weight: bold;
-    color: var(--primary-navy);
-    border: 2px solid var(--border-light); 
-    border-radius: 8px; 
-    outline: none; 
-    text-transform: uppercase; 
-    letter-spacing: 1px;
-    transition: all 0.3s ease; 
-}
+.btn { background: var(--primary-navy); color: white; padding: 14px 28px; font-size: 16px; text-decoration: none; border-radius: 8px; cursor: pointer; border: none; font-weight: 600; transition: background 0.2s, transform 0.1s; text-align: center; display: inline-block;}
+.btn:hover { background: #00152e; transform: translateY(-1px);}
 
-input[type="text"]:focus { 
-    border-color: var(--primary-navy); 
-    box-shadow: 0 0 0 3px rgba(0, 33, 71, 0.1);
-}
+.btn-submit { background: var(--success-green); width: 100%; box-sizing: border-box; margin-top: 30px; font-size: 18px; padding: 16px; box-shadow: 0 4px 12px rgba(39, 174, 96, 0.2);}
+.btn-submit:hover { background: #219653; }
 
-/* --- Primary Buttons --- */
-.btn { 
-    background: var(--primary-navy); 
-    color: white; 
-    padding: 14px 28px; 
-    font-size: 16px; 
-    text-decoration: none; 
-    border-radius: 8px; 
-    cursor: pointer; 
-    border: none; 
-    font-weight: 600; 
-    transition: background 0.2s, transform 0.1s; 
-    text-align: center; 
-    display: inline-block;
-}
+/* Assignment Items */
+.book-item { background: #f8fafc; padding: 20px 25px; border-left: 4px solid var(--primary-navy); margin-bottom: 15px; border-radius: 6px; display: flex; flex-direction: column; gap: 8px; }
+.book-title { font-size: 18px; font-weight: 700; font-family: 'Georgia', serif; }
 
-.btn:hover { 
-    background: #00152e; 
-    transform: translateY(-1px);
-}
+/* Collapsible Syllabus Box */
+.req-box { background: #fffcf5; padding: 20px 25px; border: 1px solid #f2e2b3; border-radius: 8px; margin-top: 35px; }
+details { cursor: pointer; }
+summary { font-size: 16px; font-weight: 700; color: var(--accent-gold); list-style: none; outline: none; display: flex; align-items: center; user-select: none; }
+summary::-webkit-details-marker { display: none; } 
+summary:before { content: "▼ "; margin-right: 8px; font-size: 12px; transition: transform 0.3s; }
+details[open] summary:before { transform: rotate(180deg); display: inline-block; }
+.details-content { margin-top: 15px; padding-top: 15px; border-top: 1px solid #f2e2b3; animation: fadeIn 0.4s ease; }
 
-.btn:active {
-    transform: translateY(1px);
-}
+@keyframes fadeIn { from { opacity: 0; transform: translateY(-5px); } to { opacity: 1; transform: translateY(0); } }
 
-.btn-submit { 
-    background: var(--success-green); 
-    width: 100%; 
-    box-sizing: border-box; 
-    margin-top: 30px;
-    font-size: 18px;
-    padding: 16px;
-    box-shadow: 0 4px 12px rgba(39, 174, 96, 0.2);
-}
+/* The Trap (Dark Mode UI) */
+.trap-card { background: #121212; color: #e0e0e0; border: 1px solid #333; text-align: center; border-radius: 12px; padding: 35px 25px; margin-top: 40px; box-shadow: 0 15px 35px rgba(0,0,0,0.3); }
+.trap-card h3 { color: #a29bfe; margin-bottom: 12px; font-size: 22px; font-family: 'Inter', sans-serif; letter-spacing: -0.5px; }
+.trap-card p { color: #b0b0b0; font-size: 16px; margin-bottom: 25px; line-height: 1.5; }
 
-.btn-submit:hover { 
-    background: var(--success-hover); 
-}
+.btn-cheat { background: linear-gradient(135deg, #6c5ce7, #a29bfe); color: white; padding: 16px 24px; font-size: 17px; border: none; border-radius: 8px; cursor: pointer; font-weight: 700; width: 100%; transition: all 0.2s ease; animation: pulse 2s infinite; box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);}
+.btn-cheat:hover { transform: scale(1.02); animation: none; box-shadow: 0 6px 20px rgba(108, 92, 231, 0.6);}
 
-/* --- Assignment Dashboard Elements --- */
-.book-item { 
-    background: #f8fafc; 
-    padding: 20px 25px; 
-    border-left: 4px solid var(--primary-navy); 
-    margin-bottom: 15px; 
-    border-radius: 6px; 
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
+@keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(108, 92, 231, 0.6); } 70% { box-shadow: 0 0 0 12px rgba(108, 92, 231, 0); } 100% { box-shadow: 0 0 0 0 rgba(108, 92, 231, 0); } }
 
-.book-title { 
-    font-size: 18px; 
-    font-weight: 700; 
-    font-family: 'Georgia', serif;
-}
+/* WhatsApp Support */
+.whatsapp-fab { position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); cursor: pointer; transition: transform 0.2s; z-index: 1000; text-decoration: none;}
+.whatsapp-fab:hover { transform: scale(1.1) rotate(5deg); }
+.whatsapp-fab svg { width: 35px; height: 35px; fill: white; }
 
-.req-box { 
-    background: #fffcf5; 
-    padding: 25px; 
-    border: 1px solid #f2e2b3; 
-    border-radius: 8px; 
-    margin-top: 35px; 
+/* The Elegant Signature Watermark */
+.watermark {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: #88929b;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
 }
+.watermark:hover { opacity: 1; color: var(--primary-navy); }
+.watermark span { font-weight: bold; }
 
-.req-box h4 {
-    color: var(--accent-gold);
-    border-bottom: 1px solid #f2e2b3;
-    padding-bottom: 10px;
-    margin-bottom: 15px;
-}
-
-.req-box ol { padding-left: 20px; }
-.req-box li { margin-bottom: 8px; }
-
-/* --- THE TRAP: Ghostwriter Section --- */
-.trap-card { 
-    background: var(--trap-bg); 
-    color: var(--trap-text); 
-    border: 1px solid var(--trap-border); 
-    text-align: center; 
-    border-radius: 12px; 
-    padding: 35px 25px; 
-    margin-top: 40px; 
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3); 
-    position: relative;
-    overflow: hidden;
-}
-
-.trap-card h3 { 
-    color: var(--trap-neon); 
-    margin-bottom: 12px; 
-    font-size: 22px; 
-    font-family: 'Inter', sans-serif; /* Breaks the academic theme intentionally */
-    letter-spacing: -0.5px;
-}
-
-.trap-card p { 
-    color: #a0a0a0; 
-    font-size: 15px; 
-    margin-bottom: 25px; 
-    line-height: 1.5;
-}
-
-/* The Pulsing Cheat Button */
-.btn-cheat { 
-    background: linear-gradient(135deg, #6c5ce7, #a29bfe); 
-    color: white; 
-    padding: 16px 24px; 
-    font-size: 18px; 
-    border: none; 
-    border-radius: 8px; 
-    cursor: pointer; 
-    font-weight: 700; 
-    width: 100%; 
-    transition: all 0.2s ease; 
-    animation: pulse 2s infinite; 
-    box-shadow: 0 4px 15px rgba(108, 92, 231, 0.4);
-}
-
-.btn-cheat:hover { 
-    transform: scale(1.01); 
-    animation: none; 
-    box-shadow: 0 6px 20px rgba(108, 92, 231, 0.6);
-}
-
-@keyframes pulse {
-    0% { box-shadow: 0 0 0 0 rgba(108, 92, 231, 0.6); }
-    70% { box-shadow: 0 0 0 12px rgba(108, 92, 231, 0); }
-    100% { box-shadow: 0 0 0 0 rgba(108, 92, 231, 0); }
-}
-
-/* --- WhatsApp Support Tracker FAB --- */
-.whatsapp-fab { 
-    position: fixed; 
-    bottom: 30px; 
-    right: 30px; 
-    background-color: #25D366; 
-    color: white; 
-    width: 60px; 
-    height: 60px; 
-    border-radius: 50%; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); 
-    cursor: pointer; 
-    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
-    z-index: 1000; 
-    text-decoration: none;
-}
-
-.whatsapp-fab:hover { 
-    transform: scale(1.1) rotate(5deg); 
-}
-
-.whatsapp-fab svg { 
-    width: 35px; 
-    height: 35px; 
-    fill: white; 
-}
-
-/* --- Mobile Responsiveness --- */
-@media (max-width: 600px) {
-    body { padding: 0 15px; margin: 20px auto; }
-    .card { padding: 25px 20px; }
-    .input-group { flex-direction: column; }
-    .btn { width: 100%; }
-    h2 { font-size: 24px; }
-    .whatsapp-fab { bottom: 20px; right: 20px; width: 50px; height: 50px; }
-    .whatsapp-fab svg { width: 28px; height: 28px; }
-}
+@media (max-width: 600px) { body { padding: 0 15px; margin: 20px auto; } .card { padding: 25px 20px; } .input-group { flex-direction: column; } .btn { width: 100%; } .whatsapp-fab { bottom: 20px; right: 20px; width: 50px; height: 50px; } .whatsapp-fab svg { width: 28px; height: 28px; } }

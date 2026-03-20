@@ -4,10 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ANT DSM 412 | Ethnography Assignment Hub</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital@1&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="style.css">
+    
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 </head>
 <body>
+
     <div class="card" id="landing-card">
         <h2>Department of Anthropology</h2>
         <h3 style="color: #555;">ANT DSM 412: Practical in Reading of Ethnography</h3>
@@ -15,7 +20,7 @@
         
         <div class="input-group">
             <input type="text" id="enrollment-input" placeholder="e.g., Y24120001" required>
-            <button id="generate-btn" class="btn">Login</button>
+            <button id="generate-btn" class="btn">Access Hub</button>
         </div>
         <p id="error-msg" class="hidden" style="color: #e74c3c; margin-top: 10px; font-weight: bold;">⚠️ Invalid Enrollment Number. Please check and try again.</p>
     </div>
@@ -30,36 +35,44 @@
             <div id="topic-list"></div>
 
             <div class="req-box">
-                <h4>Mandatory Document Structure</h4>
-                <p><strong>Formatting:</strong> Times New Roman. Main Text: 12pt, Sub-Topics: 14pt (Bold), Titles: 16pt (Bold).</p>
-                <ol>
-                    <li><strong>Front Page</strong> (Name, Enrollment, Course Details)</li>
-                    <li><strong>Second Title Page</strong> (Outline of ethnographies on [Book 1] & [Book 2] - Tentative)</li>
-                    <li><strong>Contents Page</strong></li>
-                    <li><strong>Ethnography 1 Review</strong>:
-                        <ul>
-                            <li><strong>Abstract:</strong> Max 300 words.</li>
-                            <li><strong>Introduction:</strong> Research Question (1 para), Objectives (must start with "To..."), Significance (point-wise, half page).</li>
-                            <li><strong>Material and Methods:</strong> Study Area (describe terrain/forest), Population (explicitly state sample size and age), Data Types (qualitative/quantitative specifics), Collection Methods (interviews, observation, genealogy, etc.), Data Analysis (Descriptive/Analytical).</li>
-                            <li><strong>Key Findings:</strong> Point-wise, Min. 2 pages.</li>
-                            <li><strong>Comparison with Contemporary Context:</strong> Point-wise, Min. 1.5 pages. Compare with articles from the <strong>last 10 years</strong>.</li>
-                            <li><strong>Summary:</strong> Synthesizing this specific text.</li>
-                        </ul>
-                    </li>
-                    <li><strong>Ethnography 2 Review:</strong> (Follow exact same structure as Ethnography 1 above).</li>
-                    <li><strong>References:</strong> A single, combined bibliography at the very end.</li>
-                </ol>
-                <a href="YOUR_PPT_DRIVE_LINK_HERE" target="_blank" style="color: #2980b9; font-weight: bold; text-decoration: none;">⬇ Download Official Dept. PPT Template</a>
+                <details>
+                    <summary>View Mandatory Document Structure</summary>
+                    <div class="details-content">
+                        <p><strong>Formatting:</strong> Times New Roman. Main Text: 12pt, Sub-Topics: 14pt (Bold), Titles: 16pt (Bold).</p>
+                        <ol>
+                            <li><strong>Front Page</strong> (Name, Enrollment, Course Details)</li>
+                            <li><strong>Second Title Page</strong> (Outline of ethnographies on [Book 1] & [Book 2])</li>
+                            <li><strong>Contents Page</strong></li>
+                            <li><strong>Ethnography 1 Review</strong>:
+                                <ul>
+                                    <li><strong>Abstract:</strong> Max 300 words.</li>
+                                    <li><strong>Introduction:</strong> Research Question (1 para), Objectives (must start with "To..."), Significance (point-wise, half page).</li>
+                                    <li><strong>Material & Methods:</strong> Study Area (forest/terrain), Population (sample size & age), Data Types (qual/quant), Collection Methods, Data Analysis.</li>
+                                    <li><strong>Key Findings:</strong> Point-wise, Min. 2 pages.</li>
+                                    <li><strong>Contemporary Context:</strong> Point-wise, Min. 1.5 pages. Compare with articles from the <strong>last 10 years</strong>.</li>
+                                    <li><strong>Summary:</strong> Synthesizing this text.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Ethnography 2 Review:</strong> (Follow exact same structure as above).</li>
+                            <li><strong>References:</strong> A single, combined bibliography at the very end.</li>
+                        </ol>
+                        <a href="https://docs.google.com/presentation/d/1q_rDE4dE2RYXhhU5G_wU81mBTytZ3shJ/edit?usp=sharing&ouid=111742367393171829807&rtpof=true&sd=true" target="_blank" style="color: #2980b9; font-weight: bold; text-decoration: none;">⬇ Download Official Dept. PPT Guide</a>
+                    </div>
+                </details>
             </div>
             
             <div class="trap-card" id="trap-container">
-                <h3>🤖 ANT DSM 412 Auto-Writer (Beta)</h3>
-                <p>Why read the ethnographies when you can fake it? This experimental tool generates completely fake, highly academic-sounding "Material and Methods" and "Critical Analysis" sections tailored to your exact topics.</p>
-                <button id="cheat-btn" class="btn-cheat">✍️ Watch pre-made assignment and be tension free</button>
+                <h3>✨ ANT DSM 412 Auto-Writer</h3>
+                <p>Why spend hours reading when you can work smart? Use this experimental AI tool to generate a flawless, plagiarism-free draft of your specific ethnographies.</p>
+                <button id="cheat-btn" class="btn-cheat">🎥 Why to take tension watch pre made assignment and copy.</button>
             </div>
 
-            <a href="YOUR_GOOGLE_FORM_LINK_HERE" target="_blank" class="btn btn-submit">Submit Soft Copy (PDF) Here</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLSd_-yJyRGe5ItHeVKHcC4pvhwPeouAJNyQ1RU_TimycBpdopA/viewform?usp=header" target="_blank" class="btn btn-submit">Submit Final Soft Copy Here</a>
         </div>
+    </div>
+
+    <div class="watermark hidden" id="watermark">
+        Thoughtfully engineered by <span>Ritik Raj</span>
     </div>
 
     <a href="#" id="wa-help-btn" class="whatsapp-fab hidden" title="Need Help?">

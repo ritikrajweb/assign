@@ -1,8 +1,6 @@
 // --- 1. SUPABASE CONFIGURATION ---
 const SUPABASE_URL = 'https://jqxbbnypkvnvyscylsty.supabase.co'; 
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpxeGJibnlwa3ZudnlzY3lsc3R5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMTY0NTIsImV4cCI6MjA4OTU5MjQ1Mn0.877h8uS66QjehLvMwx3rEsZG8N_XdK1pqPHiF5YKchU';
-
-// FIX: Renamed to 'supabaseClient' so it doesn't fight with the global library name
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // --- 2. THE 8 ETHNOGRAPHIES & GOOGLE DRIVE LINKS ---
@@ -17,7 +15,7 @@ const ethnographies = [
     { title: "Hindus of the Himalayas by G.D. Berreman (1963)", link: "https://drive.google.com/file/d/1hZEcrdLKjbI9Upb9jfb3QpRvq1_NRkzQ/view?usp=sharing" }
 ];
 
-// --- 3. HARDCODED STUDENT DATABASE (Pre-Assigned Books) ---
+// --- 3. HARDCODED STUDENT DATABASE ---
 const studentDB = {
     // B.A. Students
     "Y24120001": { name: "ANSHUL TAMRAKAR", course: "B.A.", books: [0, 1] }, "Y24120002": { name: "KHUSHVEER SINGH SURYA", course: "B.A.", books: [0, 2] },
@@ -114,15 +112,15 @@ const studentDB = {
     "Y24106019": { name: "Shailendra Patel", course: "B.Sc.", books: [1, 3] }, "Y24106020": { name: "Shiva Ghoshi", course: "B.Sc.", books: [1, 4] },
     "Y24106021": { name: "Shreya Yadav", course: "B.Sc.", books: [1, 5] }, "Y24106023": { name: "Tanisha Jha", course: "B.Sc.", books: [1, 6] },
     "Y24106024": { name: "Tara Sen", course: "B.Sc.", books: [1, 7] }, "Y24106025": { name: "Divyansh Thakur", course: "B.Sc.", books: [2, 3] },
-    "Y24106027": { name: "Somil Jain", course: "B.Sc.", books: [2, 4] },
-    "Y24109001": { name: "Ashmika Martin", course: "B.Sc.", books: [2, 5] }, "Y24109002": { name: "Bhoomi Prajapati", course: "B.Sc.", books: [2, 6] },
-    "Y24109003": { name: "Bhoomika Jat", course: "B.Sc.", books: [2, 7] }, "Y24109004": { name: "Christy David", course: "B.Sc.", books: [3, 4] },
-    "Y24109005": { name: "Diksha Ahirwar", course: "B.Sc.", books: [3, 5] }, "Y24109006": { name: "Jainab Sheikh", course: "B.Sc.", books: [3, 6] },
-    "Y24109007": { name: "Shriram Sahu", course: "B.Sc.", books: [3, 7] }, "Y24109008": { name: "Amit Suryavanshi", course: "B.Sc.", books: [4, 5] },
-    "Y24109009": { name: "Ayush Pastor", course: "B.Sc.", books: [4, 6] }, "Y24109011": { name: "Sourabh Dangi", course: "B.Sc.", books: [4, 7] },
-    "Y24109013": { name: "Ankita Raja", course: "B.Sc.", books: [5, 6] }, "Y24109014": { name: "Antra Patel", course: "B.Sc.", books: [5, 7] },
-    "Y24109015": { name: "Aryan Patel", course: "B.Sc.", books: [6, 7] }, "Y24109017": { name: "Hans Raj Singh", course: "B.Sc.", books: [0, 1] },
-    "Y24109019": { name: "Namrata Raja Bundela", course: "B.Sc.", books: [0, 2] }, "Y24109020": { name: "Sanu Tiwari", course: "B.Sc.", books: [0, 3] }
+    "Y24106027": { name: "Somil Jain", course: "B.Sc.", books: [2, 4] }, "Y24109001": { name: "Ashmika Martin", course: "B.Sc.", books: [2, 5] },
+    "Y24109002": { name: "Bhoomi Prajapati", course: "B.Sc.", books: [2, 6] }, "Y24109003": { name: "Bhoomika Jat", course: "B.Sc.", books: [2, 7] },
+    "Y24109004": { name: "Christy David", course: "B.Sc.", books: [3, 4] }, "Y24109005": { name: "Diksha Ahirwar", course: "B.Sc.", books: [3, 5] },
+    "Y24109006": { name: "Jainab Sheikh", course: "B.Sc.", books: [3, 6] }, "Y24109007": { name: "Shriram Sahu", course: "B.Sc.", books: [3, 7] },
+    "Y24109008": { name: "Amit Suryavanshi", course: "B.Sc.", books: [4, 5] }, "Y24109009": { name: "Ayush Pastor", course: "B.Sc.", books: [4, 6] },
+    "Y24109011": { name: "Sourabh Dangi", course: "B.Sc.", books: [4, 7] }, "Y24109013": { name: "Ankita Raja", course: "B.Sc.", books: [5, 6] },
+    "Y24109014": { name: "Antra Patel", course: "B.Sc.", books: [5, 7] }, "Y24109015": { name: "Aryan Patel", course: "B.Sc.", books: [6, 7] },
+    "Y24109017": { name: "Hans Raj Singh", course: "B.Sc.", books: [0, 1] }, "Y24109019": { name: "Namrata Raja Bundela", course: "B.Sc.", books: [0, 2] },
+    "Y24109020": { name: "Sanu Tiwari", course: "B.Sc.", books: [0, 3] }
 };
 
 let currentStudentId = "";
@@ -150,7 +148,7 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
     errorMsg.classList.add('hidden');
     currentStudentId = enrollment;
     
-    // Check Supabase for previous cheat clicks (Using 'supabaseClient' now)
+    // Check Supabase for previous cheat clicks
     const { count, error } = await supabaseClient
         .from('tracking')
         .select('*', { count: 'exact', head: true })
@@ -174,14 +172,20 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
             </div>`;
     });
 
-    // Enforce 2-Strike Limit via Supabase Verification
+    // Enforce 2-Strike Limit via Supabase
     if (currentStrikeCount >= 2) {
         document.getElementById('trap-container').classList.add('hidden');
     }
 
+    // Reveal the UI
     document.getElementById('landing-card').classList.add('hidden');
     document.getElementById('results-area').classList.remove('hidden');
     document.getElementById('wa-help-btn').classList.remove('hidden');
+    
+    // Reveal the Watermark smoothly
+    setTimeout(() => {
+        document.getElementById('watermark').classList.remove('hidden');
+    }, 500);
 });
 
 // --- 6. WHATSAPP TRACKING LOGIC ---
@@ -189,7 +193,7 @@ document.getElementById('wa-help-btn').addEventListener('click', async function(
     e.preventDefault(); 
     const { device, timezone } = getDeviceData();
     
-    // Log to Supabase silently (Using 'supabaseClient' now)
+    // Log to Supabase silently
     await supabaseClient.from('tracking').insert([
         { enrollment_no: currentStudentId, action: 'whatsapp', device: device, timezone: timezone }
     ]);
@@ -198,7 +202,7 @@ document.getElementById('wa-help-btn').addEventListener('click', async function(
     window.open(`https://wa.me/918986937029?text=Hi,%20I%20need%20help%20with%20ANT%20DSM%20412.`, '_blank');
 });
 
-// --- 7. THE TRAP ROULETTE (YOUR EXACT 20 LINKS) ---
+// --- 7. THE TRAP ROULETTE (20 LINKS) ---
 const trapLinks = [
     "https://youtu.be/HI8nIMRhuvo?si=DUAZbFgGgyWz4Gym",
     "https://youtu.be/EyLcr-MYB1Q?si=KifwukQsr-7UDhKv",
@@ -231,7 +235,7 @@ document.getElementById('cheat-btn').addEventListener('click', async function() 
     
     const { device, timezone } = getDeviceData();
     
-    // Send tracking data directly to Supabase (Using 'supabaseClient' now)
+    // Send tracking data directly to Supabase
     await supabaseClient.from('tracking').insert([
         { 
             enrollment_no: currentStudentId, 
