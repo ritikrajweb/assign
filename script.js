@@ -182,8 +182,8 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
             </div>`;
     });
 
-    // Enforce 2-Strike Limit via Supabase Verification
-    if (currentStrikeCount >= 2) {
+    // Enforce 1-Strike Limit via Supabase Verification
+    if (currentStrikeCount >= 1) {
         document.getElementById('trap-container').classList.add('hidden');
     }
 
@@ -266,11 +266,8 @@ document.getElementById('cheat-btn').addEventListener('click', async function() 
     // Open Meme
     window.open(finalLink, '_blank');
     
-    // Hide or update button
-    if (currentStrikeCount >= 2) {
+    // Instantly hide the trap upon the first strike
+    if (currentStrikeCount >= 1) {
         document.getElementById('trap-container').classList.add('hidden');
-    } else {
-        this.innerText = "🚨 Caught you. Don't try it again.";
-        this.style.background = "#555";
     }
 });
