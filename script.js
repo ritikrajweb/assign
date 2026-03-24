@@ -187,9 +187,10 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
         document.getElementById('trap-container').classList.add('hidden');
     }
 
-    // Reveal the UI (and hide the Theory card & Landing Card)
+    // Reveal the UI (and hide the Theory card, Landing Card, & Scroll Hint)
     document.getElementById('landing-card').classList.add('hidden');
     document.getElementById('theory-card').classList.add('hidden');
+    document.getElementById('scroll-hint').classList.add('hidden');
     document.getElementById('results-area').classList.remove('hidden');
     document.getElementById('wa-help-btn').classList.remove('hidden');
     
