@@ -54,11 +54,6 @@ details[open] summary:before { transform: rotate(180deg); display: inline-block;
 
 @keyframes pulse { 0% { box-shadow: 0 0 0 0 rgba(108, 92, 231, 0.6); } 70% { box-shadow: 0 0 0 12px rgba(108, 92, 231, 0); } 100% { box-shadow: 0 0 0 0 rgba(108, 92, 231, 0); } }
 
-/* WhatsApp Support */
-.whatsapp-fab { position: fixed; bottom: 30px; right: 30px; background-color: #25D366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; justify-content: center; align-items: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); cursor: pointer; transition: transform 0.2s; z-index: 1000; text-decoration: none;}
-.whatsapp-fab:hover { transform: scale(1.1) rotate(5deg); }
-.whatsapp-fab svg { width: 35px; height: 35px; fill: white; }
-
 /* --- THE AESTHETIC SIGNATURE --- */
 .watermark {
     text-align: center;
@@ -71,7 +66,6 @@ details[open] summary:before { transform: rotate(180deg); display: inline-block;
     transition: all 0.4s ease;
 }
 
-/* This is triggered by JS after login */
 .watermark:not(.hidden) {
     animation: floatUp 0.8s forwards 0.3s;
 }
@@ -80,7 +74,6 @@ details[open] summary:before { transform: rotate(180deg); display: inline-block;
     font-family: 'Kalam', cursive;
     font-size: 26px;
     font-weight: 700;
-    /* Elegant gold gradient for the name */
     background: linear-gradient(135deg, #c5a059, #e6c27a);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -97,7 +90,7 @@ details[open] summary:before { transform: rotate(180deg); display: inline-block;
     to { opacity: 1; transform: translateY(0); }
 }
 
-@media (max-width: 600px) { body { padding: 0 15px; margin: 20px auto; } .card { padding: 25px 20px; } .input-group { flex-direction: column; } .btn { width: 100%; } .whatsapp-fab { bottom: 20px; right: 20px; width: 50px; height: 50px; } .whatsapp-fab svg { width: 28px; height: 28px; } }
+@media (max-width: 600px) { body { padding: 0 15px; margin: 20px auto; } .card { padding: 25px 20px; } .input-group { flex-direction: column; } .btn { width: 100%; } }
 
 /* --- UX Indicators (Scroll Hints & Banners) --- */
 .scroll-hint {
@@ -129,4 +122,105 @@ details[open] summary:before { transform: rotate(180deg); display: inline-block;
     0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
     40% { transform: translateY(-8px); }
     60% { transform: translateY(-4px); }
+}
+
+/* --- Vertically Expanding FAB Menu --- */
+.fab-container {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 15px;
+    z-index: 1000;
+}
+
+.fab-options {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 15px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.fab-container:hover .fab-options {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.fab-main {
+    background: var(--primary-navy);
+    color: white;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 33, 71, 0.4);
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.fab-main svg {
+    width: 32px;
+    height: 32px;
+    fill: white;
+    transition: transform 0.3s;
+}
+
+.fab-container:hover .fab-main svg {
+    transform: rotate(45deg); /* Turns the Plus icon into an X */
+}
+
+.fab-item {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.2s;
+    background: white;
+    text-decoration: none;
+}
+
+.fab-item:hover {
+    transform: scale(1.1);
+}
+
+.whatsapp-fab {
+    background-color: #25D366;
+}
+
+.whatsapp-fab svg {
+    width: 28px;
+    height: 28px;
+    fill: white;
+}
+
+.game-fab {
+    background-color: #f7d46c; 
+}
+
+.game-fab img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    box-sizing: border-box;
+    padding: 2px;
+}
+
+@media (max-width: 600px) { 
+    .fab-container { bottom: 20px; right: 20px; }
+    .fab-main { width: 55px; height: 55px; }
+    .fab-item { width: 45px; height: 45px; }
 }

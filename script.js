@@ -2,7 +2,6 @@
 const SUPABASE_URL = 'https://jqxbbnypkvnvyscylsty.supabase.co'; 
 const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpxeGJibnlwa3ZudnlzY3lsc3R5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQwMTY0NTIsImV4cCI6MjA4OTU5MjQ1Mn0.877h8uS66QjehLvMwx3rEsZG8N_XdK1pqPHiF5YKchU';
 
-// Using 'supabaseClient' to prevent naming collisions with the external library
 const supabaseClient = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
 // --- 2. THE 8 ETHNOGRAPHIES & GOOGLE DRIVE LINKS ---
@@ -192,7 +191,6 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
     document.getElementById('theory-card').classList.add('hidden');
     document.getElementById('scroll-hint').classList.add('hidden');
     document.getElementById('results-area').classList.remove('hidden');
-    document.getElementById('wa-help-btn').classList.remove('hidden');
     
     // Reveal the Watermark smoothly
     setTimeout(() => {
@@ -200,18 +198,34 @@ document.getElementById('generate-btn').addEventListener('click', async () => {
     }, 500);
 });
 
-// --- 6. WHATSAPP TRACKING LOGIC ---
+// --- 6. FAB TRACKING LOGIC ---
+
+// WhatsApp Support Tracking
 document.getElementById('wa-help-btn').addEventListener('click', async function(e) {
+    e.preventDefault(); 
+    const { device, timezone } = getDeviceData();
+    
+    // Log to Supabase silently (allows unregistered users to click too)
+    await supabaseClient.from('tracking').insert([
+        { enrollment_no: currentStudentId || 'unregistered', action: 'whatsapp', device: device, timezone: timezone }
+    ]);
+    
+    // Open chat
+    window.open(`https://wa.me/918986937029?text=Hi,%20I%20need%20help%20with%20ANT%20DSM%20412.`, '_blank');
+});
+
+// Spin Game Tracking
+document.getElementById('game-btn').addEventListener('click', async function(e) {
     e.preventDefault(); 
     const { device, timezone } = getDeviceData();
     
     // Log to Supabase silently
     await supabaseClient.from('tracking').insert([
-        { enrollment_no: currentStudentId, action: 'whatsapp', device: device, timezone: timezone }
+        { enrollment_no: currentStudentId || 'unregistered', action: 'game', device: device, timezone: timezone }
     ]);
     
-    // Open chat
-    window.open(`https://wa.me/918986937029?text=Hi,%20I%20need%20help%20with%20ANT%20DSM%20412.`, '_blank');
+    // Open Game
+    window.open('https://ritikspin.onrender.com', '_blank');
 });
 
 // --- 7. THE TRAP ROULETTE (YOUR EXACT 20 LINKS) ---
